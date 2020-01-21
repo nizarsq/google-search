@@ -10,7 +10,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 
-driver = webdriver.Chrome('/home/testing/chromedriver_linux64/chromedriver')
+driver = None
 
 
 class Config:
@@ -37,7 +37,7 @@ def setup_driver():
     options = Options()
     if not Config.SHOW_BROWSER:
         options.add_argument("--headless")
-        driver = webdriver.Chrome(chrome_options=options)
+    driver = webdriver.Chrome('/home/testing/chromedriver_linux64/chromedriver', chrome_options=options) # Change directory to where you have the chromedriver 
 
 
 def sleep(sec: int =0, mins: int = 0):
